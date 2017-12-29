@@ -1,0 +1,23 @@
+{
+  "name": "thn-feed",
+  "version": "1.0.0",
+  "description": "The Hacker News feed with GitHub authentication",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zettca/thn-feed.git"
+  },
+  "keywords": [
+    "The",
+    "Hacker",
+    "News",
+    "Feed",
+    "GitHub",
+    "NodeJs",
+  ],
+  "author": "Bruno Henriques",
+  "homepage": "https://github.com/zettca/thn-feed#readme"
+}
