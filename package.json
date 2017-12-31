@@ -16,8 +16,15 @@
     "News",
     "Feed",
     "GitHub",
-    "NodeJs",
+    "NodeJS"
   ],
+  "license": "ISC",
   "author": "Bruno Henriques",
-  "homepage": "https://github.com/zettca/thn-feed#readme"
+  "homepage": "https://github.com/zettca/thn-feed#readme",
+  "dependencies": {
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.2",
+    "request": "^2.83.0",
+    "uuid": "^3.1.0"
+  }
 }

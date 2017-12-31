@@ -1,0 +1,5 @@
+{
+    "endpointUri": "http://localhost:8080",
+    "githubAuthId" : "APP_ID",
+    "githubAuthSecret" : "APP_SECRET"
+}
