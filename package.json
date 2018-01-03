@@ -2,8 +2,8 @@
   "name": "thn-feed",
   "version": "1.0.0",
   "description": "The Hacker News feed with GitHub authentication",
-  "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -11,12 +11,11 @@
     "url": "git+https://github.com/zettca/thn-feed.git"
   },
   "keywords": [
-    "The",
-    "Hacker",
-    "News",
+    "The Hacker News",
+    "Hacker News",
     "Feed",
     "GitHub",
-    "NodeJS"
+    "Oauth"
   ],
   "license": "ISC",
   "author": "Bruno Henriques",
