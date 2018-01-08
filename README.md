@@ -1,2 +1,2 @@
-# The Hacker News Feed
-A *The Hacker News* feed with GitHub authentication
+# Hacker News Feed
+A *Hacker News* feed with GitHub authentication

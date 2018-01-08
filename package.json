@@ -1,7 +1,7 @@
 {
   "name": "thn-feed",
   "version": "1.0.0",
-  "description": "The Hacker News feed with GitHub authentication",
+  "description": "Hacker News feed with GitHub authentication",
   "scripts": {
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,7 +11,6 @@
     "url": "git+https://github.com/zettca/thn-feed.git"
   },
   "keywords": [
-    "The Hacker News",
     "Hacker News",
     "Feed",
     "GitHub",
