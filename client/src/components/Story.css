@@ -1,0 +1,33 @@
+.Story {
+    display: table;
+    margin: 1em 0;
+    padding: 0.2em;
+}
+
+.Story > div {
+    display: table-cell;
+    padding: 0.4em;
+}
+
+.Story-score {
+    font-size: 1.6em;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.Story-title {
+    margin: 0;
+}
+
+.Story-desc {
+    display: block;
+}
+
+.Story-desc span {
+    margin-right: 0.2em;
+}
+
+.group {
+    display: inline-block;
+    margin-right: 0.4em;
+}
