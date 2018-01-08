@@ -21,6 +21,7 @@
   "author": "Bruno Henriques",
   "homepage": "https://github.com/zettca/thn-feed#readme",
   "dependencies": {
+    "compression": "^1.7.1",
     "cookie-parser": "^1.4.3",
     "express": "^4.16.2",
     "mongodb": "^3.0.1",
