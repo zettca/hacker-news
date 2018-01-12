@@ -1,18 +1,32 @@
 import React from 'react';
+import { BrowserRouter, Route, Link } from "react-router-dom";
 import './App.css';
+
 import Feed from './components/Feed';
+import Login from "./components/Login";
+import PostDetails from "./components/PostDetails";
+import LoginHandler from "./components/handlers/LoginHandler";
+import LogoutHandler from "./components/handlers/LogoutHandler";
 
 class App extends React.Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Hacker News Feed</h1>
-        </header>
-        <main className="App-body">
-          <Feed category="top"/>
-        </main>
-      </div>
+      <BrowserRouter>
+        <div className="App">
+          <header className="App-header">
+            <h2 className="App-title">
+              <Link to={"/"}>Hacker News Feed</Link>
+            </h2>
+            <Login />
+            <Route path="/logout" component={LogoutHandler} />
+            <Route path="/auth/github/:hack" component={LoginHandler} />
+          </header>
+          <main className="App-body">
+            <Route exact path="/" component={Feed} />
+            <Route path="/post/:id" component={PostDetails} />
+          </main>
+        </div>
+      </BrowserRouter>
     );
   }
 }

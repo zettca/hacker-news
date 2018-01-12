@@ -1,7 +1,10 @@
 .Story {
     display: table;
-    margin: 1em 0;
+    margin-bottom: 1em;
     padding: 0.2em;
+    width: 48em;
+    box-shadow: 1px 1px 4px #CCC;
+    background: white;
 }
 
 .Story > div {
@@ -10,21 +13,22 @@
 }
 
 .Story-score {
-    font-size: 1.6em;
+    font-size: 1.4em;
+    width: 3em;
     text-align: center;
     vertical-align: middle;
 }
 
-.Story-title {
-    margin: 0;
-}
-
-.Story-desc {
+.Story-main > div {
     display: block;
 }
 
 .Story-desc span {
     margin-right: 0.2em;
+}
+
+.Story-title {
+    margin-bottom: 0.6em;
 }
 
 .group {

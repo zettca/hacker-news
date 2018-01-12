@@ -1,14 +1,35 @@
+body {
+  background: #EEE;
+}
+
+a {
+  color: #0077ff;
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 500;
+}
+
 .App-header {
-  text-align: center;
+  text-align: left;
   background-color: #222;
-  padding: 1em;
   color: white;
 }
 
-.App-body {
-  margin: 0 2em;
+.App-header a {
+  color: white;
+}
+
+.App-header h2 {
+  margin: 0;
+}
+
+.App-header, .App-body {
+  padding: 1em 2em;
 }
 
 .App-title {
   font-size: 2em;
+  display: inline-block;
 }

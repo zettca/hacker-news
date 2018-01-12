@@ -1,17 +1,11 @@
 import React from 'react';
+import { ago } from "time-ago";
+import { Link } from "react-router-dom";
+import { Textfit } from "react-textfit";
 import './Story.css';
+import { fetchDataWithJWT } from "../helpers";
 
-const apiBase = "https://hacker-news.firebaseio.com/v0/";
-
-function timeSince(timestamp) {
-    const now = new Date();
-    const secsPast = (now.getTime() - timestamp * 1000) / 1000;
-    if (secsPast < 60) return parseInt(secsPast, 10) + 's';
-    if (secsPast < 3600) return parseInt(secsPast / 60, 10) + 'm';
-    if (secsPast < 24 * 3600) return parseInt(secsPast / 3600, 10) + 'h';
-    if (secsPast < 7 * 24 * 3600) return parseInt(secsPast / 24 * 3600, 10) + 'd';
-    return parseInt(secsPast / 7 * 24 * 3600, 10) + 'w';
-}
+const apiBase = "http://localhost:8080/api/";
 
 class Story extends React.Component {
     constructor() {
@@ -20,31 +14,38 @@ class Story extends React.Component {
     }
 
     componentDidMount() {
-        fetch(`${apiBase}/item/${this.props.id}.json`)
-            .then((res) => res.json())
+        fetchDataWithJWT(`${apiBase}item/${this.props.id}`, localStorage.getItem("jwt"))
             .then((data) => {
                 this.setState({ data });
             });
     }
 
     render() {
-        let storyData = this.state.data;
+        const storyData = this.state.data;
         if (!storyData || Object.keys(storyData).length === 0) return null;
         return (
             <article className="Story">
                 <div className="Story-score">
                     <span>{storyData.score}</span>
                 </div>
-                <div className="Story-desc">
-                    <a href={storyData.url}>
-                        <h3 className="Story-title">{storyData.title}</h3>
-                    </a>
-                    <div className="group">
-                        <span>{storyData.descendants} comments</span>
+                <div className="Story-main">
+                    <div className="Story-title">
+                        <Textfit
+                            mode="single"
+                            max={28}>
+                            <a target="_blank" href={storyData.url}>{storyData.title}</a>
+                        </Textfit>
                     </div>
-                    <div className="group">
-                        <span>posted by <strong>{storyData.by}</strong></span>
-                        <span>{timeSince(storyData.time)} ago</span>
+                    <div className="Story-desc">
+                        <div className="group">
+                            <Link to={`/post/${storyData.id}`}>
+                                {storyData.descendants + " comments"}
+                            </Link>
+                        </div>
+                        <div className="group">
+                            <span>submitted {ago(storyData.time * 1000)}</span>
+                            <span>by <i>{storyData.by}</i></span>
+                        </div>
                     </div>
                 </div>
             </article>);
