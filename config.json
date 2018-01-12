@@ -1,5 +1,6 @@
 {
-    "endpointUri": "http://localhost:8080",
-    "githubAuthId" : "APP_ID",
-    "githubAuthSecret" : "APP_SECRET"
+    "dbPath": "mongodb://localhost:27017",
+    "githubAuthAppId": "APP_ID",
+    "githubAuthSecret": "APP_SECRET",
+    "secret": "mammy pneumonic justice Voronezh hairline uncial"
 }
