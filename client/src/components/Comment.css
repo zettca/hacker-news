@@ -1,17 +1,22 @@
 .Comment {
-    border: 1px solid silver;
+    border: 1px solid #CCC;
     border-radius: 4px;
     padding: 0.4em 1em;
     margin: 1em 0 1px;
 }
 
-.Comment-parent {
+.Comment2 {
     display: table;
+    width: 100%;
 }
 
-.Comment-parent > div {
+.Comment2 > div {
     display: table-cell;
-    padding: 0 0.4em;
+    padding: 0 0.2em;
+}
+
+.Comment-main {
+    width: 100%;
 }
 
 .Comment-controls {
@@ -29,12 +34,4 @@
 .Comment-author {
     font-size: 1.2em;
     font-weight: 600;
-}
-
-.Comment-kids {
-    margin-left: 2em;
-}
-
-.collapsed {
-    display: none;
 }
