@@ -1,11 +1,40 @@
-.Comment-data {
-
+.Comment {
+    border: 1px solid silver;
+    border-radius: 4px;
+    padding: 0.4em 1em;
+    margin: 1em 0 1px;
 }
 
-.Comment-data span {
-    margin-right: 0.4em;
+.Comment-parent {
+    display: table;
+}
+
+.Comment-parent > div {
+    display: table-cell;
+    padding: 0 0.4em;
+}
+
+.Comment-controls {
+    cursor: pointer;
+    user-select: none;
+    font-size: 1.2em;
+    font-weight: bold;
+    font-family: monospace;
+}
+
+.Comment-head {
+    margin-bottom: 0.6em;
+}
+
+.Comment-author {
+    font-size: 1.2em;
+    font-weight: 600;
 }
 
 .Comment-kids {
     margin-left: 2em;
+}
+
+.collapsed {
+    display: none;
 }
