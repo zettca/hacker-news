@@ -24,7 +24,7 @@ class Story extends React.Component {
                     <div className="Story-desc">
                         <div className="group">
                             <Link to={`/post/${data.id}`}>
-                                {data.descendants ? (data.descendants + " comments") : ""}
+                                {(data.descendants || 0) + " comments"}
                             </Link>
                         </div>
                         <div className="group">
