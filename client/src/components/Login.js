@@ -9,7 +9,7 @@ const oAuthUri = "https://github.com/login/oauth/authorize/?" + stringify({
 class Login extends React.Component {
     render() {
         const token = localStorage.getItem("jwt");
-        const text = token ? `Logout` : "Sign in with GitHub";
+        const text = token ? `Logout` : "Sign in";
         const url = token ? "/logout" : oAuthUri;
         return (
             <a className="button Login" href={url}>

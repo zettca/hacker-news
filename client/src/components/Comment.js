@@ -41,23 +41,17 @@ class Comment extends React.Component {
 
         return (
             <div className="Comment">
-                <div className="Comment2">
-                    <div className="Comment-controls" onClick={this.toggleCollapse.bind(this)}>
-                        [{collapsed ? "+" : "-"}]
-                    </div>
-                    <div className="Comment-main">
-                        <div>
-                            <div className="Comment-head">
-                                <span className="Comment-author">{data.by}</span>
-                            </div>
-                            <div className={"Comment-text" + collapseCss}>
-                                <span dangerouslySetInnerHTML={{ __html: data.text }} />
-                            </div>
-                        </div>
-                        <div className={"Comment-kids" + collapseCss}>
-                            {kids}
-                        </div>
-                    </div>
+                <div className="Comment-controls" onClick={this.toggleCollapse.bind(this)}>
+                    [{collapsed ? "+" : "-"}]
+                </div>
+                <div className="Comment-head">
+                    <span className="Comment-author">{data.by}</span>
+                </div>
+                <div className={"Comment-text" + collapseCss}>
+                    <span dangerouslySetInnerHTML={{ __html: data.text }} />
+                </div>
+                <div className={"Comment-kids" + collapseCss}>
+                    {kids}
                 </div>
             </div>);
     }

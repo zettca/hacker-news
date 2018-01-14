@@ -1,29 +1,16 @@
 .Story {
-    display: table;
     margin-bottom: 1em;
-    padding: 0.2em;
-    width: 48em;
+    padding: 0.6em;
+    max-width: 42em;
+    border-radius: 4px;
     box-shadow: 1px 1px 4px #CCC;
     background: white;
 }
 
-.Story > div {
-    display: table-cell;
-    padding: 0.4em;
-}
-
 .Story-score {
-    font-size: 1.4em;
-    width: 3em;
-    text-align: center;
-    vertical-align: middle;
 }
 
-.Story-main > div {
-    display: block;
-}
-
-.Story-desc span {
+.Story-stats span {
     margin-right: 0.2em;
 }
 

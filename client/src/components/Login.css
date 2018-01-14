@@ -1,4 +1,6 @@
 .Login {
+    position: relative;
+    top: 4px;
     float: right;
     font-size: 1.2em;
     border: 1px solid white;

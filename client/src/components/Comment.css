@@ -5,24 +5,11 @@
     margin: 1em 0 1px;
 }
 
-.Comment2 {
-    display: table;
-    width: 100%;
-}
-
-.Comment2 > div {
-    display: table-cell;
-    padding: 0 0.2em;
-}
-
-.Comment-main {
-    width: 100%;
-}
-
 .Comment-controls {
+    float: right;
     cursor: pointer;
     user-select: none;
-    font-size: 1.2em;
+    font-size: 1.4em;
     font-weight: bold;
     font-family: monospace;
 }
@@ -34,4 +21,8 @@
 .Comment-author {
     font-size: 1.2em;
     font-weight: 600;
+}
+
+.Comment-text {
+    overflow-wrap: break-word;
 }
