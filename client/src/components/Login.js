@@ -3,7 +3,7 @@ import "./Login.css";
 import { stringify } from "querystring";
 
 const oAuthUri = "https://github.com/login/oauth/authorize/?" + stringify({
-    client_id: "4cfdd656c7ee1ac65b21",
+    client_id: process.env.REACT_APP_GITHUB_ID,
 });
 
 class Login extends React.Component {
