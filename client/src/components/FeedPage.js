@@ -1,34 +1,33 @@
 import React from 'react';
+import { resolve } from "url";
 import Story from './Story';
 import { fetchAuthed } from "../helpers";
-
-const apiBase = "http://localhost:8080/api/";
 
 class FeedPage extends React.Component {
     constructor() {
         super();
-        this.state = {
-            storiesData: []
-        }
+        this.state = {};
     }
 
     componentDidMount() {
         const { data } = this.props;
+
         const jwt = localStorage.getItem("jwt");
+        const host = process.env.REACT_APP_SERVER_HOST || "";
         Promise.all(data.map((id) => {
-            return fetchAuthed(`${apiBase}item/${id}`, jwt).then(res => res.json());
-        })).then(storiesData => {
-            this.setState({ storiesData });
+            return fetchAuthed(resolve(host, "/api/item/") + id, jwt).then(res => res.json());
+        })).then(data => {
+            this.setState({ data });
         });
     }
 
     render() {
-        const { storiesData } = this.state; // stories
-        if (!storiesData || storiesData.error) return null;
+        const { data } = this.state; // stories
+        if (!data || data.error) return null;
         return (
             <section>
-                {(storiesData.length > 0)
-                    ? storiesData.map((el) => (<Story id={el.id} key={el.id} data={el} />))
+                {(data.length > 0)
+                    ? data.map((el) => (<Story id={el.id} key={el.id} data={el} />))
                     : "Loading stories..."}
             </section>);
     }

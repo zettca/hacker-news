@@ -1,8 +1,7 @@
 import React from 'react';
+import { resolve } from "url";
 import "./Comment.css"
 import { fetchAuthed } from "../helpers";
-
-const apiBase = "http://localhost:8080/api/";
 
 class Comment extends React.Component {
     constructor(props) {
@@ -14,8 +13,10 @@ class Comment extends React.Component {
 
     componentDidMount() {
         const { id } = this.props;
+
         const jwt = localStorage.getItem("jwt");
-        fetchAuthed(`${apiBase}item/${id}`, jwt)
+        const host = process.env.REACT_APP_SERVER_HOST || "";
+        fetchAuthed(resolve(host, "/api/item/") + id, jwt)
             .then(res => res.json())
             .then((data) => {
                 this.setState({ data });

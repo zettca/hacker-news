@@ -4,6 +4,7 @@
   "description": "Hacker News feed with GitHub authentication",
   "scripts": {
     "start": "node index.js",
+    "heroku-postbuild": "cd client && npm install && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -24,7 +25,6 @@
     "cors": "^2.8.4",
     "express": "^4.16.2",
     "express-jwt": "^5.3.0",
-    "mongodb": "^3.0.1",
     "request": "^2.83.0"
   }
 }

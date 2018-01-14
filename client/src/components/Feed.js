@@ -1,8 +1,7 @@
 import React from 'react';
+import { resolve } from "url";
 import FeedPage from './FeedPage';
 import { fetchAuthed } from "../helpers";
-
-const apiBase = "http://localhost:8080/api/";
 
 class Feed extends React.Component {
     constructor() {
@@ -22,15 +21,19 @@ class Feed extends React.Component {
         const { loadingPage, pagesData } = this.state;
         if (!loadingPage && pageScroll > pageEnd) {
             console.log("hit page bottom, loading more items...");
-            this.setState({ loadingPage: true });
-            this.forceUpdate();
             this.loadPage(pagesData.length);
         }
     }
 
     loadPage(pageNum) {
         const { pagesData } = this.state;
-        fetchAuthed(`${apiBase}stories/top/${pageNum}`, localStorage.getItem("jwt"))
+
+        this.setState({ loadingPage: true });
+        this.forceUpdate();
+
+        const jwt = localStorage.getItem("jwt");
+        const host = process.env.REACT_APP_SERVER_HOST || "";
+        fetchAuthed(resolve(host, "/api/stories/top/") + pageNum, jwt)
             .then(res => res.json())
             .then((data) => {
                 pagesData.push(data);

@@ -1,4 +1,5 @@
 import React from "react";
+import { resolve } from "url";
 import { Redirect } from "react-router-dom";
 import { parse } from "querystring";
 
@@ -13,7 +14,8 @@ class LoginHandler extends React.Component {
         const { search } = this.props.location;
         const { code } = parse(search.slice(1));
 
-        fetch(`http://localhost:8080/auth/github/${code}`)
+        const host = process.env.REACT_APP_SERVER_HOST || "";
+        fetch(resolve(host, "/auth/github/") + code)
             .then(res => res.json())
             .then(data => {
                 localStorage.setItem("jwt", data.token);
