@@ -23,6 +23,10 @@ class Comment extends React.Component {
             });
     }
 
+    componentWillUnmount() {
+        // TODO: abort fetches (AbortController)
+    }
+
     toggleCollapse() {
         const { collapsed } = this.state;
         this.setState({ collapsed: !collapsed });

@@ -34,7 +34,7 @@ class Feed extends React.Component {
         const jwt = localStorage.getItem("jwt");
         const host = process.env.REACT_APP_SERVER_HOST || "";
         fetchAuthed(resolve(host, "/api/stories/top/") + pageNum, jwt)
-            .then(res => res.json())
+            .then(res => res.json()) // TODO: handle unauthed
             .then((data) => {
                 pagesData.push(data);
                 this.setState({
@@ -42,7 +42,9 @@ class Feed extends React.Component {
                     pagesData: pagesData
                 });
             })
-            .catch((err) => console.log(err));
+            .catch((err) => {
+                this.setState({ error: "Error loading data. Are you logged in?" });
+            });
     }
 
     componentDidMount() {
@@ -55,7 +57,8 @@ class Feed extends React.Component {
     }
 
     render() {
-        const { loadingPage, pagesData } = this.state;
+        const { error, loadingPage, pagesData } = this.state;
+        if (error) return (<span>{error}</span>);
         return (
             <section>
                 {pagesData.map((el, i) => (<FeedPage page={i} key={i} data={el} />))}

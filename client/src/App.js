@@ -18,12 +18,12 @@ class App extends React.Component {
               <Link to={"/"}>Hacker News Feed</Link>
             </h2>
             <Login />
-            <Route path="/logout" component={LogoutHandler} />
-            <Route path="/auth/github/:hack" component={LoginHandler} />
           </header>
           <main className="App-body">
             <Route exact path="/" component={Feed} />
             <Route path="/post/:id" component={PostDetails} />
+            <Route path="/logout" component={LogoutHandler} />
+            <Route path="/auth/github/:hack" component={LoginHandler} />
           </main>
         </div>
       </BrowserRouter>
