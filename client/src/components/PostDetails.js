@@ -1,8 +1,7 @@
 import React from 'react';
-import { resolve } from "url";
 import { ago } from "time-ago";
 import Comment from "./Comment";
-import { fetchAuthed } from "../helpers";
+import { fetchAPI } from "../helpers";
 
 class PostDetails extends React.Component {
     constructor() {
@@ -14,9 +13,7 @@ class PostDetails extends React.Component {
         const { id } = this.props.match.params;
 
         const jwt = localStorage.getItem("jwt");
-        const host = process.env.REACT_APP_SERVER_HOST || "";
-        fetchAuthed(resolve(host, "/api/item/") + id, jwt)
-            .then(res => res.json())
+        fetchAPI("/item/" + id, jwt)
             .then((data) => {
                 this.setState({ data });
             });

@@ -14,7 +14,7 @@ class LoginHandler extends React.Component {
         const { search } = this.props.location;
         const { code } = parse(search.slice(1));
 
-        const host = process.env.REACT_APP_SERVER_HOST || "";
+        const host = process.env.REACT_APP_SERVER || "";
         fetch(resolve(host, "/auth/github/") + code)
             .then(res => res.json())
             .then(data => {

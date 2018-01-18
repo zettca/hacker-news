@@ -7,18 +7,11 @@
     background: white;
 }
 
-.Story-score {
-}
-
-.Story-stats span {
-    margin-right: 0.2em;
+.Story-desc span {
+    margin-right: 0.4em;
 }
 
 .Story-title {
+    font-size: 1.5em;
     margin-bottom: 0.6em;
-}
-
-.group {
-    display: inline-block;
-    margin-right: 0.4em;
 }

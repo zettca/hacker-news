@@ -1,7 +1,6 @@
 import React from 'react';
-import { resolve } from "url";
 import FeedPage from './FeedPage';
-import { fetchAuthed } from "../helpers";
+import { fetchAPI } from "../helpers";
 
 class Feed extends React.Component {
     constructor() {
@@ -32,9 +31,7 @@ class Feed extends React.Component {
         this.forceUpdate();
 
         const jwt = localStorage.getItem("jwt");
-        const host = process.env.REACT_APP_SERVER_HOST || "";
-        fetchAuthed(resolve(host, "/api/stories/top/") + pageNum, jwt)
-            .then(res => res.json()) // TODO: handle unauthed
+        fetchAPI("/stories/top/" + pageNum, jwt)
             .then((data) => {
                 pagesData.push(data);
                 this.setState({

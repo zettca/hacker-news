@@ -1,7 +1,6 @@
 import React from 'react';
-import { resolve } from "url";
 import "./Comment.css"
-import { fetchAuthed } from "../helpers";
+import { fetchAPI } from "../helpers";
 
 class Comment extends React.Component {
     constructor(props) {
@@ -15,9 +14,7 @@ class Comment extends React.Component {
         const { id } = this.props;
 
         const jwt = localStorage.getItem("jwt");
-        const host = process.env.REACT_APP_SERVER_HOST || "";
-        fetchAuthed(resolve(host, "/api/item/") + id, jwt)
-            .then(res => res.json())
+        fetchAPI("/item/" + id, jwt)
             .then((data) => {
                 this.setState({ data });
             });
@@ -40,7 +37,7 @@ class Comment extends React.Component {
         const collapseCss = collapsed ? " collapsed" : "";
 
         return (
-            <div className="Comment">
+            <div className="Comment" onDoubleClick={this.toggleCollapse.bind(this)}>
                 <div className="Comment-controls" onClick={this.toggleCollapse.bind(this)}>
                     [{collapsed ? "+" : "-"}]
                 </div>
