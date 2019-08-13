@@ -1,14 +1,23 @@
 .Comment {
-    border: 1px solid #CCC;
-    border-radius: 4px;
-    padding: 0.6em;
-    margin: 1em 0 1px;
+    margin: 1em 0 0;
+    display: flex;
 }
 
-.Comment-controls {
-    float: right;
+.Comment-left {
     cursor: pointer;
     user-select: none;
+    padding-right: 0.6rem;
+    border-left: 2px solid #999;
+    border-radius: 40%;
+}
+
+.Comment-left:hover {
+    border-left: 2px solid #CCC;
+}
+
+.Comment-right {}
+
+.Comment-controls {
     font-size: 1.4em;
     font-weight: bold;
     font-family: monospace;
@@ -19,10 +28,14 @@
 }
 
 .Comment-author {
-    font-size: 1.2em;
     font-weight: 600;
+    margin-right: 0.4rem;
 }
 
 .Comment-text {
     overflow-wrap: break-word;
+}
+
+.collapsed .Comment-left {
+    border-color: #666;
 }

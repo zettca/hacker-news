@@ -17,7 +17,7 @@ class App extends React.Component {
             <h2 className="App-title">
               <Link to={"/"}>Hacker News Feed</Link>
             </h2>
-            <Login />
+            {/*<Login />*/}
           </header>
           <main className="App-body">
             <Route exact path="/" component={Feed} />

@@ -21,12 +21,12 @@ app.use('/static', express.static(clientPath + '/static'));
 app.get('/auth/github/:code', lib.handleAuth);
 
 // serve jwt-authed API
-app.all('/api/*', jwt({ secret: process.env.SECRET }), lib.validateUser);
+//app.all('/api/*', jwt({ secret: process.env.SECRET }), lib.validateUser);
 app.get('/api/item/:id', api.getItem);
 app.get('/api/stories/:cat/:page', api.getStories);
 app.get('/api/comments/:id', api.getComments);
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
-    console.log(`App running at ${port}...`);
+    console.log(`App running at http://localhost:${port}...`);
 });

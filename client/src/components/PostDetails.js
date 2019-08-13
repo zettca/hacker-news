@@ -31,14 +31,8 @@ class PostDetails extends React.Component {
                 <h2>
                     <a href={data.url}>{data.title}</a>
                 </h2>
-                <div className="big">
-                    <span>{new Date(timeMs).toLocaleString()}</span>
-                </div>
-                <div className="big">
-                    submited {ago(timeMs)}
-                </div>
-                <div className="big">
-                    by <strong><i>{data.by}</i></strong>
+                <div>
+                    submited <i title={new Date(timeMs).toLocaleString()}>{ago(timeMs)}</i> by <strong>{data.by}</strong>
                 </div>
                 <div>
                     {kids || "No comments..."}
